@@ -6,9 +6,10 @@ export const calculateStatus = (winner, squares, nextValue) => {
             : `Next player: ${nextValue}`
 }
 
-export const calculateNextValue = () => {
-
-    // return  'X' or 'O'
+export const calculateNextValue = (squares) => {
+    const xSquaresCount = squares.filter(r => r === 'X').length
+    const oSquaresCount = squares.filter(r => r === 'O').length
+    return oSquaresCount === xSquaresCount ? 'X' : 'O'
 }
 
 export const calculateWinner = () => {
