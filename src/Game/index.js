@@ -3,7 +3,10 @@ import React from 'react'
 import useLocalStorageState from './../hooks/useLocalStorageState'
 import Board from './../Game/components/Board'
 import { calculateWinner, calculateNextValue, calculateStatus } from './../Game/components/utils'
-
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 const Game = () => {
     const [history, setHistory] = useLocalStorageState('tic-tac-toe:history', [
@@ -42,28 +45,28 @@ const Game = () => {
         const isCurrentStep = step === currentStep
         return (
             <li key={step}>
-                <button disabled={isCurrentStep} onClick={() => setCurrentStep(step)} >
+                <Button variant="outline-primary" size="lg" disabled={isCurrentStep} onClick={() => setCurrentStep(step)} >
                     {desc} {isCurrentStep ? '(current)' : null}
-                </button>
+                </Button>
             </li>
         )
     })
 
     return (
-        <div className="" style={{}}>
-            <div>
-                <div>
+        <Container className="overflow-auto" style={{ paddingTop: "20px" }}>
+            <Row>
+                <Col md={6} sm={12}>
                     <Board onClick={selectSquare} squares={currentSquares} />
-                    <button onClick={restart}>
+                    <Button variant="primary" size="lg" onClick={restart} style={{ marginTop: "1rem" }}>
                         Restart
-                    </button>
-                </div>
-                <div>
+                    </Button>
+                </Col>
+                <Col md={6} sm={12} className="text-start">
                     <h1>{status}</h1>
                     <div>{moves}</div>
-                </div>
-            </div>
-        </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
