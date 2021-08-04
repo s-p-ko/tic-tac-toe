@@ -1,1 +1,3 @@
-# Getting Started with 'Tic Tac Toe' app using react
+# Tic Tac Toe game
+## using React
+## See [demo](https://tic-tac.pages.dev/)
