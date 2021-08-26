@@ -2,7 +2,7 @@ export const calculateStatus = (winner, squares, nextValue) => {
     return winner
         ? `Winner: ${winner}`
         : squares.every(Boolean)
-            ? `GAME OVER. Tie!`
+            ? `GAME OVER. Draw!`
             : `Next player: ${nextValue}`
 }
 
